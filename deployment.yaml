@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testapp
+  template:
+    metadata:
+      labels:
+        app: testapp
+    spec:
+      containers:
+        - name: testapp
+          image: us-west1-docker.pkg.dev/test/test/test-gke
+          ports:
+            - containerPort: 8080
