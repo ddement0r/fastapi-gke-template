@@ -14,6 +14,13 @@ spec:
     spec:
       containers:
         - name: testapp
-          image: us-west1-docker.pkg.dev/test/test/test-gke
+          image: fastapi-gke-image
           ports:
             - containerPort: 8080
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
